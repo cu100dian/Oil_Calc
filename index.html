@@ -17,7 +17,7 @@
     }
     #app {
       width: 320px;
-      background-color: #9c27b0; /* Нежный фиолетовый */
+      background-color: #ff7f32; /* Нежный оранжевый цвет */
       border-radius: 20px;
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -25,7 +25,7 @@
       flex-direction: column;
       justify-content: space-between;
       height: auto;
-      margin-top: -30px; /* Поднимаем рамку выше */
+      margin-top: -50px; /* Поднимаем рамку выше */
     }
     #title {
       font-size: 24px;
@@ -34,7 +34,7 @@
       margin-bottom: 20px;
     }
     .input-field {
-      background-color: #ba68c8; /* Более нежный фиолетовый */
+      background-color: #ff9e5e; /* Более приглушенный оранжевый */
       border: none;
       padding: 10px;
       font-size: 18px;
@@ -43,13 +43,16 @@
       margin-bottom: 15px;
       text-align: center;
     }
+    .input-field::placeholder {
+      color: #ffe0b3; /* Более светлый текст для лучшей читаемости */
+    }
     .button-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
     .button {
-      background-color: #ba68c8; /* Более нежный фиолетовый */
+      background-color: #ff9e5e; /* Более приглушенный оранжевый */
       border: none;
       padding: 15px;
       font-size: 24px;
@@ -59,10 +62,10 @@
       width: 100%;
     }
     .button:hover {
-      background-color: #ab47bc; /* Немного темнее при наведении */
+      background-color: #ff8e3a; /* Немного темнее при наведении */
     }
     .button:active {
-      background-color: #9c27b0; /* Еще темнее при нажатии */
+      background-color: #e77f1f; /* Ещё темнее при нажатии */
     }
     #result {
       font-size: 20px;
