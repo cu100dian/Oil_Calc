@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oil Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #2a2a2a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #app {
+      width: 320px;
+      background-color: #4a148c;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: auto;
+    }
+    #title {
+      font-size: 24px;
+      color: white;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .input-field {
+      background-color: #7c4dff;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .button {
+      background-color: #7c4dff;
+      border: none;
+      padding: 15px;
+      font-size: 24px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .button:hover {
+      background-color: #5e35b1;
+    }
+    .button:active {
+      background-color: #4527a0;
+    }
+    #result {
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="title">Oil Calculator</div>
+    <input id="rho15" class="input-field" type="number" placeholder="Плотность при 15°C (г/см³)">
+    <input id="temperature" class="input-field" type="number" placeholder="Температура (°C)">
+    <div class="button-container">
+      <button class="button" id="calculateButton">Enter</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Функция для расчета плотности
+    function calculateDensity(rho_15, temperature, beta = 0.0007) {
+      return rho_15 * (1 - beta * (temperature - 15));
+    }
+
+    // Обработчик кнопки "Enter"
+    document.getElementById("calculateButton").onclick = function() {
+      // Получаем значения из полей ввода
+      const rho15 = parseFloat(document.getElementById("rho15").value);
+      const temperature = parseFloat(document.getElementById("temperature").value);
+
+      // Проверка на корректность введенных данных
+      if (isNaN(rho15) || isNaN(temperature)) {
+        document.getElementById("result").textContent = "Пожалуйста, введите корректные значения!";
+        return;
+      }
+
+      // Вычисляем плотность
+      const rhoT = calculateDensity(rho15, temperature);
+
+      // Выводим результат
+      document.getElementById("result").textContent = `Плотность при ${temperature}°C: ${rhoT.toFixed(3)} г/см³`;
+    };
+  </script>
+</body>
+</html>
